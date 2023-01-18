@@ -1,0 +1,10 @@
+.invalidInput {
+  border: 1px solid red;
+  color: red;
+  width: max-content;
+}
+
+p.invalidInput {
+  border: none;
+  color: red;
+}

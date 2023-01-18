@@ -1,0 +1,8 @@
+.nav-bar {
+  background-color: #96D4D4;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}

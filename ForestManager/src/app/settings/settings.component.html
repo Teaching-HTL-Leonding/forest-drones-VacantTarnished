@@ -1,0 +1,18 @@
+<div>
+<h2>Settings</h2>
+  <div>
+    <label>Drone ID: {{this.drone!.id}}</label><br>
+    <label>IsActive: {{this.drone!.isActive}}</label><br>
+    <label>Current X: {{ ((drone!.position) ? drone!.position.x : '0') }}</label><br>
+    <label>Current Y: {{ ((drone!.position) ? drone!.position.y : '0') }}</label><br>
+    <button (click)="onSwitchState(this.drone!.id!)">{{this.drone!.isActive ? 'Deactivate' : 'Activate' }}</button><br>
+  </div>
+  <div *ngIf="this.drone!.isActive">
+    <h3>Fly to</h3>
+    <label>New X: <input [class]="newX.errors ? 'invalidInput' : ''" #newX="ngModel" id="newX" name="newX" type="number" [(ngModel)]="this.newPos.x" max=750 min=-750 required></label><br>
+    <p class="invalidInput" *ngIf="newX.errors">Invalid value for X!</p>
+    <label>New Y: <input [class]="newY.errors ? 'invalidInput' : ''" #newY="ngModel" id="newY" name="newY" type="number" [(ngModel)]="this.newPos.y" max=750 min=-750 required></label><br>
+    <p class="invalidInput" *ngIf="newY.errors">Invalid value for Y!</p>
+    <button [disabled]="newX.errors || newY.errors" (click)="flyTo(this.drone!.id)">Fly to {{this.newPos.x}} {{this.newPos.y}}</button>
+  </div>
+</div>
